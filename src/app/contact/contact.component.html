@@ -2,16 +2,16 @@
     <div class="title font-semibold text-center text-3xl mb-5">You want to contact with us?</div>
     <div class="grid grid-cols-2 gap-4 max-w-xl m-auto">
       <div class="col-span-2 lg:col-span-1">
-        <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full rounded" placeholder="Name"/>
+        <input [(ngModel)]="name" type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full rounded" placeholder="Name"/>
       </div>
       <div class="col-span-2 lg:col-span-1">
-        <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full rounded" placeholder="Email Address"/>
+        <input [(ngModel)]="email" type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full rounded" placeholder="Email Address"/>
       </div>
       <div class="col-span-2">
-        <textarea cols="30" rows="8" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full rounded" placeholder="Message"></textarea>
+        <textarea [(ngModel)]="message" cols="30" rows="8" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full rounded" placeholder="Message"></textarea>
       </div>
       <div class="col-span-2 text-right">
-        <button class="py-3 px-6 bg-gray-400 text-white font-bold w-full sm:w-32 hover:bg-yellow-400 rounded">
+        <button (click)="onSubmit()" class="py-3 px-6 bg-gray-400 text-white font-bold w-full sm:w-32 hover:bg-yellow-400 rounded">
           Submit
         </button>
       </div>

@@ -1,5 +1,18 @@
 import {Component, OnInit} from "@angular/core"
 
+export interface Pilaf {
+    title:string;    
+    text:string;
+    time:string;
+    url:string;
+}
+
+export interface Button {
+    id:number;
+    title:string;
+    style:string;
+}
+
 @Component({
     selector:'app-recept',
     templateUrl: './recept.component.html'
@@ -11,14 +24,34 @@ export class ReceptComponent implements OnInit{
     currentCookingTime:string = ''
     currentPilafUrl:string = ''
 
-    activeStyle = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none text-yellow-500 border-b-2 font-medium border-yellow-500'
-    disActiveStyle = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none'
-    style1 = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none'
-    style2 = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none'
-    style3 = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none'
-    style4 = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none'
+    activeStyle:string = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none text-yellow-500 border-b-2 font-medium border-yellow-500'
+    defaultStyle:string = 'text-gray-600 py-4 px-6 block hover:text-yellow-500 focus:outline-none'
 
-    pilafs = [
+    buttons:Button[] = [
+        {
+            id:1,
+            title:'Pilaf 1',
+            style:this.defaultStyle
+        },
+        {
+            id:2,
+            title:'Pilaf 2',
+            style:this.defaultStyle
+        },
+        {
+            id:3,
+            title:'Pilaf 3',
+            style:this.defaultStyle
+        },
+        {
+            id:4,
+            title:'Pilaf 4',
+            style:this.defaultStyle   
+        }
+    ]
+
+
+    pilafs:Pilaf[] = [
         {
             title: 'Pilaf 1',
             text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At enim vitae perspiciatis modi amet, dolores minima, ea velit eum voluptatibus excepturi dolore, aut maiores architecto ipsum! Doloribus explicabo id quam.',
@@ -46,17 +79,16 @@ export class ReceptComponent implements OnInit{
     ]
 
     changePilaf(index){
-        this.style1 = this.disActiveStyle
-        this.style2 = this.disActiveStyle
-        this.style3 = this.disActiveStyle
-        this.style4 = this.disActiveStyle
+        this.buttons.forEach(b => {
+            b.style = this.defaultStyle
+        })
         switch(index){
             case 1:{
                 this.currentPilafTitle = this.pilafs[0].title
                 this.currentPilafText = this.pilafs[0].text
                 this.currentCookingTime = this.pilafs[0].time
                 this.currentPilafUrl = this.pilafs[0].url
-                this.style1 = this.activeStyle
+                this.buttons[0].style = this.activeStyle
                 break
             }
             case 2:{
@@ -64,7 +96,7 @@ export class ReceptComponent implements OnInit{
                 this.currentPilafText = this.pilafs[1].text
                 this.currentCookingTime = this.pilafs[1].time
                 this.currentPilafUrl = this.pilafs[1].url
-                this.style2 = this.activeStyle
+                this.buttons[1].style = this.activeStyle
                 break
             }
             case 3:{
@@ -72,7 +104,7 @@ export class ReceptComponent implements OnInit{
                 this.currentPilafText = this.pilafs[2].text
                 this.currentCookingTime = this.pilafs[2].time
                 this.currentPilafUrl = this.pilafs[2].url
-                this.style3 = this.activeStyle
+                this.buttons[2].style = this.activeStyle
                 break
             }
             case 4:{
@@ -80,7 +112,7 @@ export class ReceptComponent implements OnInit{
                 this.currentPilafText = this.pilafs[3].text
                 this.currentCookingTime = this.pilafs[3].time
                 this.currentPilafUrl = this.pilafs[3].url
-                this.style4 = this.activeStyle
+                this.buttons[3].style = this.activeStyle
                 break
             }
             
@@ -89,5 +121,6 @@ export class ReceptComponent implements OnInit{
 
     ngOnInit(){
         this.changePilaf(1)
+        console.log(this.buttons);
     }
 }

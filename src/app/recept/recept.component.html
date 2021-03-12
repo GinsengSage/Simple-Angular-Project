@@ -1,17 +1,8 @@
 <div class="flex flex-col justify-center items-center">
     <div class="bg-white w-1/2 mt-16">
         <nav class="flex flex-col sm:flex-row">
-            <button (click)="changePilaf(1)" class="{{style1}}">
-                Pilaf 1
-            </button>
-            <button (click)="changePilaf(2)" class="{{style2}}">
-                Pilaf 2
-            </button>
-            <button (click)="changePilaf(3)" class="{{style3}}">
-                Pilaf 3
-            </button>
-            <button (click)="changePilaf(4)" class="{{style4}}">
-                Pilaf 4
+            <button class="{{button.style}}" *ngFor="let button of buttons" (click)="changePilaf(button.id)">
+                {{button.title}}
             </button>
         </nav>
     </div>
