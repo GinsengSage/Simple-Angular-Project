@@ -1,3 +1,8 @@
+
+#Simple angular app with routing and etc.
+
+This is just one of the labs at the university
+
 # NgProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
