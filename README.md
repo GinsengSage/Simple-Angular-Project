@@ -1,5 +1,5 @@
 
-#Simple angular app with routing and etc.
+# Simple angular app with routing and etc.
 
 This is just one of the labs at the university
 
